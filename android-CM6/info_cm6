@@ -1,0 +1,98 @@
+to start making the cm6 build environement you need 
+
+open the terminal and use this commend : without the (")
+" sudo-apt-get install git-core gnupg flex bison gperf libsdl1.2-dev libesd0-dev libwxgtk2.6-dev squashfs-tools build-essential zip curl libncurses5-dev zlib1g-dev sun-java6-jdk pngcrush schedtool "
+
+### Create the Directories ###
+
+# You will need to set up some directories in your build environment.
+# To create them: 
+# use the folowing commands without the (")
+" mkdir -p ~/bin "
+
+# then :
+
+" mkdir -p ~/cm6 "
+
+#after that Install the Repository
+#Enter this commend to download  the "repo" binary:
+
+" curl http://android.git.kernel.org/repo > ~/bin/repo "
+# then:
+" chmod a+x ~/bin/repo "
+
+# after that use this command :
+
+" cd ~/cm6 "
+
+# then :
+
+" repo init -u git://github.com/CyanogenMod/android.git -b froyo-stable "
+
+# after that just use this :
+
+" repo sync -j16 "
+
+# if sync -j16 have this error : #### error: Cannot fetch CyanogenMod/android_device_harmony ####
+just edit the .repo/manifest.xml and search and remove this line : 
+###########################################################################################################################
+ <project path="device/nvidia/harmony" name="CyanogenMod/android_device_harmony" remote="github" revision="froyo-stable" />
+###########################################################################################################################
+
+### ( if you not see the .repo directory in your build-environement , is cause "." files are hiden if you using ubuntu then you need to make the hiddedn files visible) ###
+
+# then again :
+
+" sync -j16 " 
+
+### if sync -j16 have another error like this: #### error: Cannot fetch CyanogenMod/android_device_advent_vega ####
+just edit the .repo/manifest.xml and search and remove also  this line :
+#####################################################################################################################
+<project path="device/advent/vega" name="CyanogenMod/android_device_advent_vega" remote="github" revision="master" />
+#####################################################################################################################
+# then again : 
+" sync -j16 "
+ 
+### if sync -j16 have another error like this: ##error: revision master in CyanogenMod/android_device_motorola_morrison not found###
+
+just edit the .repo/manifest.xml and search and remove also  this line :
+###################################################################################################################################
+  <project path="device/motorola/morrison" name="CyanogenMod/android_device_motorola_morrison" remote="github" revision="master" />
+###################################################################################################################################
+# then finaly : 
+
+" sync -j16 "
+
+# after the sync succesfully compleat copy device and vendor folder also build folder to the build environement and merge all .
+and just after use this commend : 
+
+" . build/envsetup.sh "
+
+# then this : 
+
+" lunch full_x10-eng "
+
+you will got thath 
+##################################################################################################################################
+Which would you like? [generic-eng] lunch full_x10-eng
+build/core/product_config.mk:190: *** _nic.PRODUCTS.[[vendor/cyanogen/products/cyanogen_harmony.mk]]: "device/nvidia/harmony/device_harmony.mk" does not exist. Arrêt.
+
+** Don't have a product spec for: 'lunch full_x10'
+** Do you have the right repo manifest?
+##################################################################################################################################
+now just remove vendor/cyanogen folder 
+
+# and  again : 
+
+" lunch full_x10-eng "
+
+and finaly build it with this 
+
+" make -j5 "
+
+all this problem heare , have one reason cyanogenmod repo are defectues so nothink bad we build for x10 so motorol devices or any device files is not an issue to compile it 
+
+cheers
+
+Achotjan
+

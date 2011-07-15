@@ -1,0 +1,19 @@
+format DATA:
+format CACHE:
+format SYSTEM:
+copy_dir PACKAGE:system SYSTEM:
+
+set_perm_recursive 0 0 0755 0644 SYSTEM:
+set_perm_recursive 0 2000 0755 0755 SYSTEM:bin
+set_perm_recursive 0 2000 0755 0755 SYSTEM:xbin
+set_perm 0 3003 02750 SYSTEM:bin/netcfg
+set_perm 0 3004 02755 SYSTEM:bin/ping
+set_perm 0 2000 06750 SYSTEM:bin/run-as
+set_perm 1002 1002 0440 SYSTEM:etc/dbus.conf
+set_perm 1014 2000 0550 SYSTEM:etc/dhcpcd/dhcpcd-run-hooks
+set_perm 0 2000 0550 SYSTEM:etc/init.goldfish.sh
+set_perm 0 0 04755 SYSTEM:xbin/su
+symlink /system/xbin/su SYSTEM:bin/su
+set_perm 0 0 04755 SYSTEM:bin/su
+set_perm_recursive 0 0 0755 0555 SYSTEM:etc/ppp
+set_perm 0 0 04755 SYSTEM:recovery/sh

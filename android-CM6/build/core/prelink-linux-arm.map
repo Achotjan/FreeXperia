@@ -1,0 +1,193 @@
+# Custom Prelink Map for Xperia X10
+# by zdzihu @ xda-dev
+
+# core system libraries
+libdl.so                0xAFF00000 # zdzihu
+libc.so                 0xAFE00000 # zdzihu
+libstdc++.so            0xAFD00000 # zdzihu
+libm.so                 0xAFC00000 # zdzihu
+liblog.so               0xAFBC0000 # zdzihu
+libcutils.so            0xAFB00000 # zdzihu
+libthread_db.so         0xAFA00000 # zdzihu
+libz.so                 0xAF900000 # zdzihu
+libssl.so               0xAF700000 # zdzihu
+libevent.so             0xAF600000 # not used in 2.1
+libcrypto.so            0xAF500000 # zdzihu
+libsysutils.so          0xAF400000 # zdzihu
+
+# bluetooth
+liba2dp.so              0xAEE00000 # [~1M]
+audio.so                0xAED00000 # [~1M]
+input.so                0xAEC00000 # [~1M]
+libbluetoothd.so        0xAEB00000 # zdzihu
+libbluedroid.so         0xAEA00000 # zdzihu
+libbluetooth.so         0xAE900000 # zdzihu
+libdbus.so              0xAE800000 # zdzihu
+
+# extended system libraries
+libril.so               0xAE400000 # not changed
+libreference-ril.so     0xAE300000 # achotjan <---- this is NOT good
+libdvm.so               0xADD00000 # zdzihu <---- this is NOT good
+libwpa_client.so        0xADC00000 # zdzihu
+libnetutils.so          0xADB00000 # zdzihu
+
+# core dalvik runtime support
+libandroid_servers.so   0xAD900000 # zdzihu
+libicuuc.so             0xAD500000 # zdzihu
+libicui18n.so           0xAD400000 # zdzihu
+libandroid_runtime.so   0xAD300000 # not changed
+libnativehelper.so      0xAD200000 # zdzihu
+# Note: libicudata.so intentionally omitted
+
+# graphics
+libpixelflinger.so      0xACF00000 # zdzihu
+libsurfaceflinger.so    0xACD00000 # zdzihu
+libGLES_android.so      0xACC80000 # zdzihu
+libGLESv1_CM.so         0xACB00000 # zdzihu
+libGLESv2.so            0xACA00000 # zdzihu
+libcorecg.so            0xAC800000 # backward-compatibility with donut
+libEGL.so               0xAC700000 # not changed
+libacc.so               0xAC600000 # zdzihu
+libexif.so              0xAC500000 # zdzihu
+libui.so                0xAC400000 # zdzihu
+libagl.so               0xAC300000 # not present in 2.1
+libsurfaceflinger_client.so 0xAC200000 # CONFLICT - changed 0xAC700000 -> 0xAC200000
+libskia.so              0xAC000000 # zdzihu
+
+librs_jni.so            0xABF00000 # zdzihu
+libOpenVGU_CM.so        0xABE00000 # not present in 2.1
+libOpenVG_CM.so         0xABD00000 # CONFLICT - changed
+libETC1.so              0xABC00000 # not present in 2.1
+libcamera_client.so     0xABB00000 # not present in 2.1
+libskiagl.so            0xABA00000 # not prelinked in 2.1 
+libRS.so                0xAB900000 # not changed
+
+
+# audio
+libaudiopolicy.so       0xAB880000 # zdzihu
+libaudiopolicygeneric.so 0xAB800000 # zdzihu
+libsoundpool.so         0xAB780000 # zdzihu
+libaudio.so             0xAB700000 # zdzihu
+libFLAC.so              0xAB600000 # not present in 2.1
+libsonivox.so           0xAB500000 # zdzihu
+libvorbisidec.so        0xAB400000 # zdzihu
+libmedia_jni.so         0xAB300000 # zdzihu
+libmediaplayerservice.so 0xAB280000 # zdzihu
+libmedia.so             0xAB200000 # zdzihu
+libFFTEm.so             0xAB100000 # zdzihu
+libaudioflinger.so      0xAB000000 # zdzihu
+
+# assorted system libraries
+libsqlite.so            0xAAC00000 # zdzihu
+libexpat.so             0xAAB00000 # zdzihu
+libwebcore.so           0xAA000000 # zdzihu
+libbinder.so            0xA9D80000 # zdzihu
+libutils.so             0xA9D00000 # zdzihu
+libcameraservice.so     0xA9C80000 # zdzihu
+libhardware.so          0xA9C70000 # zdzihu
+libhardware_legacy.so   0xA9C00000 # zdzihu
+libsystem_server.so     0xA9A00000 # zdzihu
+libcamera.so            0xA9680000 # zdzihu
+liboemcamera.so         0xA9400000 # zdzihu
+
+# others
+libSR_AudioIn.so        0xA8E00000 # not present in 2.1
+libjnigraphics.so       0xA8D00000 # not present in 2.1
+libspeech.so            0xA8700000 # not prelinked in 2.1
+libdiskconfig.so        0xA8600000 # not present in 2.1
+libemoji.so             0xA8500000 # not prelinked in 2.1
+libjni_latinime.so      0xA8400000 # not prelinked in 2.1
+libjni_pinyinime.so     0xA8300000 # not prelinked in 2.1
+libttssynthproxy.so     0xA8200000 # not prelinked in 2.1
+libttspico.so           0xA8000000 # not prelinked in 2.1
+
+libapp_process.so       0xA7D00000 # not present in 2.1
+libime.so               0xA7B00000 # not present in 2.1
+libgps.so               0xA7A00000 # not prelinked - TO BE FIXED
+libopencore_author.so          0xA7800000 # zdzihu
+libopencore_player.so          0xA7000000 # zdzihu
+
+
+# pv libraries
+libopencorehw.so              0xA6F50000 # zdzihu
+libpvasf.so                    0xA6F00000 # not present in 2.1
+libpvasfreg.so                 0xA6E00000 # not present in 2.1
+libomx_sharedlibrary.so        0xA6D00000 # not prelinked in 2.1
+libopencore_download.so        0xA6C00000 # not prelinked in 2.1
+libopencore_downloadreg.so     0xA6B00000 # not prelinked in 2.1
+libopencore_net_support.so     0xA6800000 # not prelinked in 2.1
+libopencore_common.so         0xA6000000 # zdzihu
+
+# pv libraries
+libopencore_rtsp.so            0xA5F00000 # not prelinked in 2.1
+libopencore_rtspreg.so         0xA5D00000 # not prelinked in 2.1
+libomx_aacdec_sharedlibrary.so 0xA5C00000 # not prelinked in 2.1
+libomx_amrdec_sharedlibrary.so 0xA5B00000 # not prelinked in 2.1
+libqcomm_omx.so               0xA5A00000 # zdzihu
+libomx_amrenc_sharedlibrary.so 0xA5900000 # not prelinked in 2.1
+libomx_avcdec_sharedlibrary.so 0xA5800000 # not prelinked in 2.1
+libomx_avcenc_sharedlibrary.so 0xA5700000 # not prelinked in 2.1
+libomx_m4vdec_sharedlibrary.so 0xA5600000 # not prelinked in 2.1
+libomx_m4venc_sharedlibrary.so 0xA5500000 # not prelinked in 2.1
+libomx_mp3dec_sharedlibrary.so 0xA5400000 # not prelinked in 2.1
+libopencore_mp4local.so        0xA5200000 # not prelinked in 2.1
+libopencore_mp4localreg.so     0xA5100000 # not prelinked in 2.1
+
+# opencore hardware support
+libmm-adspsvc.so              0xA4700000 # not present in 2.1
+libOmxCore.so                 0xA4600000 # not prelinked - TO BE FIXED
+libOmxMpeg4Dec.so             0xA4500000 # not prelinked - TO BE FIXED
+libOmxH264Dec.so              0xA4400000 # not prelinked - TO BE FIXED
+libOmxVidEnc.so               0xA4300000 # not prelinked - TO BE FIXED
+libOmxVdec.so                 0xA4100000 # not prelinked - TO BE FIXED
+libmm-omxcore.so              0xA4000000 # not prelinked - TO BE FIXED
+
+# stagefright libraries
+libstagefright_amrnb_common.so     0xA3700000 # not present in 2.1
+libstagefright_avc_common.so       0xA3600000 # not present in 2.1
+libstagefright_color_conversion.so 0xA3500000 # not present in 2.1
+libstagefright_omx.so              0xA3400000 # not prelinked - TO BE FIXED
+libstagefrighthw.so                0xA3300000 # not prelinked - TO BE FIXED
+libstagefright.so                  0xA2F00000 # not prelinked - TO BE FIXED
+
+# libraries for specific hardware
+libgsl.so               0xA2E00000 # not prelinked - TO BE FIXED
+libhtc_acoustic.so      0xA2D00000 # not present in 2.1
+libhtc_ril.so           0xA2C00000 # not present in 2.1
+liblvmxipc.so           0xA2B00000 # not present in 2.1
+libreference-cdma-sms.so 0xA2A00000 # not prelinked - TO BE FIXED
+
+
+# libraries for specific apps or temporary libraries
+libcam_ipl.so           0x9F000000 # not present in 2.1
+libwbxml.so             0x9EF00000 # not present in 2.1
+libwapcore.so           0x9E800000 # not present in 2.1
+libstreetview.so        0x9E700000 # not present in 2.1
+libwapbrowsertest.so    0x9E600000 # not present in 2.1
+libminiglobe.so         0x9E500000 # not present in 2.1
+libwbxml_jni.so         0x9E400000 # zdzihu
+libembunit.so           0x9E300000 # not present in 2.1
+libneon.so              0x9E200000 # not present in 2.1
+libjni_example.so       0x9E100000 # not present in 2.1
+libxml2wbxml.so         0x9E000000 # zdzihu
+libjni_lib_test.so      0x9DF00000 # not present in 2.1
+librunperf.so           0x9DE00000 # not present in 2.1
+libUAPI_jni.so          0x9DC00000 # not present in 2.1
+libtrace_test.so        0x9DA00000 # not present in 2.1
+libpagemap.so           0x9D900000 # not present in 2.1
+libdrm1.so              0x9D800000 # zdzihu
+libjpeg.so              0x9D700000 # not present in 2.1
+libiprouteutil.so       0x9D600000 # not present in 2.1
+libnetlink.so           0x9D500000 # not present in 2.1
+libdrm1_jni.so          0x9D400000 # zdzihu
+libstlport.so           0x9D100000 # not present in 2.1
+libzxing.so             0x9D000000 # not present in 2.1
+libinterstitial.so      0x9CF00000 # not present in 2.1
+liblept.so              0x9CA00000 # not present in 2.1
+
+libearth.so             0x9B400000 # not present in 2.1
+libjni_load_test.so     0x9B000000 # not present in 2.1
+
+libctest.so             0x9A700000 # zdzihu
+librpc.so               0x9A400000 # zdzihu
+libsrec_jni.so          0x9A200000 # zdzihu
